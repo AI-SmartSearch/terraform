@@ -12,13 +12,6 @@ resource "aws_api_gateway_deployment" "this" {
   ]
 }
 
-
-
-resource "aws_api_gateway_method_settings" "this" {
-  rest_api_id = "${aws_api_gateway_rest_api.this.id}"
-  stage_name  = "${aws_api_gateway_stage.this.stage_name}"
-  method_path = "*/*"
-
   settings {
     metrics_enabled        = "${var.api_gateway_cloudwatch_metrics}"
     logging_level          = "${var.api_gateway_logging_level}"
