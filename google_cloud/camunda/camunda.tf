@@ -1,11 +1,5 @@
 
 # Policy to allow public access to Cloud Run endpoint
-data "google_iam_policy" "noauth" {
-  binding {
-    role    = "roles/run.invoker"
-    members = ["allUsers"]
-  }
-}
 
 # Bind public policy to our Camunda Cloud Run service
 resource "google_cloud_run_service_iam_policy" "noauth" {
