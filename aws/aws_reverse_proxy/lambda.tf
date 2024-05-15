@@ -50,23 +50,6 @@ resource "aws_lambda_function" "viewer_request" {
   tags             = "${var.tags}"
 }
 
-
-
-# Allow Lambda@Edge to invoke our functions
-resource "aws_iam_role" "this" {
-  name = "${local.prefix_with_domain}"
-  tags = "${var.tags}"
-
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": [
-          "lambda.amazonaws.com",
-          "edgelambda.amazonaws.com"
         ]
       },
       "Action": "sts:AssumeRole"
