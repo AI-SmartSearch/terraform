@@ -31,7 +31,6 @@ resource "google_cloud_run_service" "camunda" {
           name = "DB_URL"
           # Complicated DB URL to Cloud SQL
           # See https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory
-          value = "jdbc:postgresql:///${google_sql_database.database.name}?cloudSqlInstance=${google_sql_database_instance.camunda-db.connection_name}&socketFactory=com.google.cloud.sql.postgres.SocketFactory"
         }
         env {
           name  = "DB_DRIVER"
